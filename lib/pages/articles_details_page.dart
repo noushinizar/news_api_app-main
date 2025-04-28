@@ -4,13 +4,13 @@ import 'package:news_api_app/model/article_model.dart';
 class ArticlePage extends StatelessWidget {
   final Article article;
 
-  ArticlePage({this.article});
+  ArticlePage({required this.article});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(article.title),
+        title: Text(article.title!),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -24,7 +24,7 @@ class ArticlePage extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: NetworkImage(article.urlToImage), fit: BoxFit.cover),
+                        image: NetworkImage(article.urlToImage!), fit: BoxFit.cover),
                     borderRadius: BorderRadius.circular(12.0),
                   ),
                 ) :
@@ -47,7 +47,7 @@ class ArticlePage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30.0),
                   ),
                   child: Text(
-                    article.source.name,
+                    article.source!.name!,
                     style: TextStyle(
                       color: Colors.white,
                     ),
@@ -57,7 +57,7 @@ class ArticlePage extends StatelessWidget {
                   height: 8.0,
                 ),
                 Text(
-                  article.description,
+                  article.description!,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16.0,

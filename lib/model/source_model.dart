@@ -1,6 +1,6 @@
 class Source
 {
-  String name;
+  String? name;
 
   Source({ this.name});
 

@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
             return ListView.builder(
                 itemCount: snapshot.data?.length,
                 itemBuilder: (context, index) {
-                  var articles = snapshot.data[index];
+                  var articles = snapshot.data![index];
                   return InkWell(
                     onTap: () {
                       Navigator.push(
@@ -63,13 +63,13 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          snapshot.data[index].urlToImage != null ?
+                          snapshot.data![index].urlToImage != null ?
                           Container(
                             height: 200.0,
                             width: double.infinity,
                             decoration: BoxDecoration(
                               image: DecorationImage(
-                                  image: NetworkImage(snapshot.data[index].urlToImage.toString()), fit: BoxFit.cover),
+                                  image: NetworkImage(snapshot.data![index].urlToImage.toString()), fit: BoxFit.cover),
                               borderRadius: BorderRadius.circular(12.0),
                             ),
                           ) :
@@ -90,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                               borderRadius: BorderRadius.circular(30.0),
                             ),
                             child: Text(
-                              articles.source.name,
+                              articles.source!.name!,
                               style: TextStyle(
                                 color: Colors.white,
                               ),
@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           SizedBox(height: 8.0),
                           Text(
-                            snapshot.data[index].title.toString(),
+                            snapshot.data![index].title.toString(),
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16.0,
